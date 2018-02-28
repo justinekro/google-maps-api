@@ -1,0 +1,38 @@
+
+<div class="container">
+	<h1>All the pieces of Art</h1>
+
+<div id="map" style="width:600px;height:500px"></div>
+
+<script>
+
+function myMap() {
+  var myCenter = new google.maps.LatLng(48.862725,2.287592000000018);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 11};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
+  var arr = <%= @arts.to_json.html_safe %>
+  for (var i=0; i < arr.length; i+=1){
+  	var myMarker = new google.maps.LatLng(arr[i].latitude,arr[i].longitude);
+	var marker = new google.maps.Marker({position:myMarker});
+	marker.setMap(map);
+
+	var infowindow = new google.maps.InfoWindow({
+		content: arr[i].name
+	});
+	infowindow.open(map,marker);
+	console.log(arr[i].name)
+  }
+
+}
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['YOUR_KEY']%>&callback=myMap"></script>
+
+<%= link_to 'Locate a new piece of art', new_art_path, class: "btn btn-success" %>
+</div>

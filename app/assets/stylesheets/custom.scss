@@ -1,0 +1,32 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 15px;
+
+
+}
+
+input[type=submit] {
+    background-color: rgb(25,25,112);
+    color: white;
+    border:0px;
+    border-radius: 3px;
+}
+

@@ -1,0 +1,20 @@
+<div class="container">
+
+<h1> Locate a new piece of art </h1>
+
+<%= form_tag (arts_path) do %>
+
+  <p> <%= label_tag 'name', "Name" %> </p>
+  <p> <%= text_area_tag 'name' %> </p>
+
+  <p> <%= label_tag 'latitude', "Latitude" %> </p>
+  <p> <%= text_area_tag 'latitude' %> </p>
+
+  <p> <%= label_tag 'longitude', "Longitude" %> </p>
+  <p> <%= text_area_tag 'longitude' %> </p>
+
+<p> <%= submit_tag 'Locate the Art'%></p>
+
+<%end %>
+
+</div>
